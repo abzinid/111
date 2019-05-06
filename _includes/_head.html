@@ -22,22 +22,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
 
-   <!--  <link rel="stylesheet" type="text/css" href="{{ url }}/assets/css/styles_feeling_responsive.css"> -->
-<script type='text/javascript'>
-//<![CDATA[
-//CSS Ready
-function loadCSS(e, t, n) {
-    "use strict";
-    var i = window.document.createElement("link");
-    var o = t || window.document.getElementsByTagName("script")[0];
-    i.rel = "stylesheet";
-    i.href = e;
-    i.media = "only x";
-    o.parentNode.insertBefore(i, o);
-}
-  loadCSS("https://w.oiin.tk/assets/css/styles_feeling_responsive.css");
-//]]>
-</script>
+  <link rel="stylesheet" type="text/css" href="{{ url }}/assets/css/styles_feeling_responsive.css"> 
+
   {% if site.asciidoctor-enabled == true %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.min.css">
   {% endif %}
