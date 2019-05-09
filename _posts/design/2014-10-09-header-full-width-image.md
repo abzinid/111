@@ -6,6 +6,7 @@ teaser: "Feeling Responsive allows you to use all kinds of headers. This example
 categories:
     - design
 tags:
+    - tag test
     - design
     - background color
     - header
