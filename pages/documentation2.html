@@ -18,307 +18,280 @@ header:
 </div><!-- /.medium-4.columns -->
 
 
-
-<div class="medium-8 medium-pull-4 columns" markdown="1">
-{% include _improve_content.html %}
-
-## Edit Navigation   {#edit-navigation}
-
-To customize the navigation of *Feeling Responsive*, you have to open the [YAML](https://jekyllrb.com/docs/datafiles/)-file `_data/navigation.yml`. Edit the data and adjust it to your own needs.
-
-## Different Page/Posts Formats   {#formats}
-
-*Feeling Responsive* supports you with different templates for your content. These are the actual page/post formats:
-
-### Page/Post
-The [page/post format]({{ site.url }}{{ site.baseurl }}/design/page/) has no sidebar by default, its content is centered and beneath the content the visitor gets some metadata like categories, tags, date and author if provided via data in front matter of the post.
-
-use in front matter via: `layout: page`
-
-### Page/Post with a left or right sidebar
-If you want to show the sidebar, just enter `sidebar: left` or `sidebar: right` in front matter, and *whoops, there it is*! To customize the content of the sidebar, open `_includes/sidebar`.
-
-
-### Page/Post with or without metadata
-If you want to show metadata like categories, tags and date at the end of the page, just enter `show_meta: true`. It's on by default. You can change it via `_config.yml`. To turn of metadata just enter – *yes, you guessed right* – `show_meta: false`.
-
-
-
-### Page Full Width
-If you want full control of styling a page, then use the [page fullwidth template]({{ site.url }}{{ site.baseurl }}/design/page-fullwidth/). To set up a grid, just use the [foundation grid system](http://foundation.zurb.com/docs/components/grid.html).
-
-use in front matter via: `layout: page-fullwidth`
-
-
-### Frontpage
-This template is special. It allows you to define three *widgets* which are displayed with a headline, image, description and a link to the content. It's used for the [homepage]({{ site.url }}{{ site.baseurl }}) of this website.
-
-use in front matter via: `layout: frontpage`
-
-
-### Video
-If you're a video producer or cineast, you'll like the [video template]({{ site.url }}{{ site.baseurl }}/design/video/). It darkens the layout to black and lets the video stand out full-width.
-
-use in front matter via: `layout: video`
-
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-
-## Style your content with   {#styling}
-
-Feeling Responsive offers lots of possibilities to style your articles. You can style your content in different ways. There are elements like subheadlines, feature images, header images, homepage images, meta data like categories and tags and many more.
-
-
-### subheadlines
-
-If you need a subheadline for an article, just define a subheadline in front matter like this:
-
-`subheadline:  "Subheadline"`
-
-### Quotes
-
-Quotes mix it up a little bit, if you write long articles. So use quotes:
-
-> Age is an issue of mind over matter. If you don't mind, it doesn't matter.
-<cite>Mark Twain</cite>
-
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-
-{% highlight html %}
-> Age is an issue of mind over matter. If you don't mind, it doesn't matter.
-<cite>Mark Twain</cite>
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-{% endhighlight %}
-
-## Comments
-
-You can use comments with *Feeling Responsive* by the way of Disqus. If you want to use Disqus-Comments just open `config.yml` and add your `disqus_shortname`. [More on how to use Disqus ›](https://disqus.com/websites/)
-
-By default comments are turned off. You can customize the default behaviour in `config.yml`. To **turn on comments** just add `comments: true` to front matter using the page layout `layout: page`. 
-
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-
-## Responsive Videos
-
-With foundation responsive videos are easy. [More ›](http://foundation.zurb.com/docs/components/flex_video.html)
-
-<div class="flex-video">
-        <iframe width="1280" height="720" src="//www.youtube.com/embed/WoHxoz_0ykI" frameborder="0" allowfullscreen></iframe>
-</div>
-
-### Code to use for flexible videos
-
-{% highlight html %}
-<div class="flex-video">
-  <iframe with video />
-</div>
-{% endhighlight %}
-
-
-<img class="t60" src="{{ site.urlimg }}header_homepage_13.jpg" alt="">
-
-## Images: Title, Thumbnails, Homepage   {#images}
-
-There are several types of images you can define via front matter. If you want to change the images used in the header have a look at [Style your Header]({{ site.url }}/headers/). 
-
-
-### Title Images
-
-~~~
-image:
-    title: image.jpg
-~~~
-
-
-### Thumbnails
-
-Thumbnails are used on archive pages like the [blog index][2]. They have a size of 150x150 pixels. Define them in front matter like this:
-
-~~~
-image:
-    thumb: thumbnail_image.jpg
-~~~
-
-
-### Homepage Image
-
-If you want to feature an article on the homepage with a huge image, then use the homepage image with a width of 970 pixels. If no homepage image is defined *Feeling Responsive* writes instead *New Blog Articles* over the blog entries. Define the homepage image like this:
-
-~~~
-image:
-    homepage: header_homepage_13.jpg
-~~~
-
-### Captions with URL
-
-Sometimes you want to give credit to the creator of your images, maybe with a link. Especially when you use Creative Commons-images like I do for this website. Just add the following front matter and *Feeling Responsive* does the rest:
-
-~~~
-image:
-    title: header_image.jpg
-    caption: Image by Phlow
-    caption_url: "http://phlow.de/"
-~~~
-
-### Define all images for an article
-
-~~~
-image:
-    title: title_image.jpg
-    thumb: thumbnail_image.jpg
-    homepage: header_homepage_13.jpg
-    caption: Image by Phlow
-    caption_url: "http://phlow.de/"
-~~~
-
-
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-
-
-## Create a Table of Contents
-{: .t60}
-
-With the Kramdown parser for Markdown you can render a table of contents for your documents. Just insert the following HTML in your post before the actual content. More information on [»Automatic ›Table of Contents‹ Generation«][1].
-
-### Bare Bones Version
-{% highlight html %}
-### Table of Contents
-*  Auto generated table of contents
-{:toc}
-{% endhighlight %}
-
-### Foundation panel version
-
-{% highlight html %}
-<div class="panel radius" markdown="1">
-**Table of Contents**
-{: #toc }
-*  TOC
-{:toc}
-</div>
-{% endhighlight %}
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-
-## Breadcrumbs
-
-To turn on breadcrumbs, just use...
-
-{% highlight html %}
-breadcrumb: true
-{% endhighlight %}
-
-
-## Includes
-{: .t60}
-
-Includes can be very helpful to spice up your content. You can use includes in your Markdown-files with ease: Just call them with some Liquid code.
-
-### list-posts.html
-
-The `list-posts.html`-include is a loop to list posts. It's a helper to add some additional content fast and easy. You can use it in individual posts for example. Which parameters you use, depends on you.
-
-Possible parameter for the loop:
-
-- entries › define the number of entries to show
-- offset › define the offset (number of entries to skip before displaying the first one)
-- category › define **only one** category to display according entries
-
-The loop looks like this when you use all parameters. Single parameters are possible of course.
-
-~~~
-{% raw %}{% include list-posts entries='3' offset='1' category='design' %}{% endraw %}
-~~~
-
-### next-previous-post-in-category.html
-
-This include creates a next/previous link to a post of the same category using the first categories-variable in front matter.
-
-~~~
-{% raw %} {% include next-previous-post-in-category %}{% endraw %}
-~~~
-
-### improve_content
-
-If your content is on Jekyll you can use this include to automatically generate a »Edit on GitHub Link« to give people a possibility to improve your content. Got the idea from [Ben Balters Blog](http://ben.balter.com/).
-
-~~~
-{% raw %}{% include _improve_content.html %}{% endraw %}
-~~~
-
-### list-collection
-
-This include lets you loop through a collection to list all entries in that collection. If you set »published: false« in front matter of a collection page the page gots filtered out via unless. The following example loops through a collection called *wordpress*.
-
-~~~
-{% raw %}{% include list-collection collection='wordpress' %}{% endraw %}
-~~~
-
-### alert – Embed an alert in your content
-
-This include lets you easily display an alert. To use the include no `.html` ending is necessary. You can use five different kinds of alerts: `warning`, `info`, `success`, `alert` and `text`. 
-
-~~~
-{% raw %}{% include alert warning='This is a warning.' %}
-{% include alert info='An info box.' %}
-{% include alert success='Yeah, you made it!' %}
-{% include alert alert='Danger!' %}
-{% include alert terminal='jekyll -serve' %}
-{% include alert text='Just a note!' %}{% endraw %}
-~~~
-
-{% include alert warning='This is a warning.' %}
-{% include alert info='An info box.' %}
-{% include alert success='Yeah, you made it!' %}
-{% include alert alert='Danger!' %}
-{% include alert terminal='jekyll -serve' %}
-{% include alert text='Just a note!' %}
-
-You can even use `<html>`-tags inside the alert. Beware: Use " and ' properly.
-
-~~~
-{% raw %}{% include alert info='<em>Feeling Responsive</em> is listed on <a href="http://jekyllthemes.org/">http://jekyllthemes.org</a>' %}{% endraw %}
-~~~
-
-{% include alert info='<em>Feeling Responsive</em> is listed on <a href="http://jekyllthemes.org/">http://jekyllthemes.org</a>' %}
-
-<small markdown="1">[Up to table of contents](#toc)</small>
-{: .text-right }
-
-## Javascript/Foundation modules
-
-*Feeling Responsive* uses the foundation framework and some of its javascript components. I reduced the modules, to decrease page load and make the theme faster.
-
-I only added one other javascript-module: [`backstretch`][3] by Scott Robbin. These modules are currently used by the theme and included in `javascript.min.js`. There is also a non-minified version, if you want to take a closer look: `javascript.js`.
-
-~~~
-/foundation/bower_components/foundation/js/vendor/jquery.js'
-/foundation/bower_components/foundation/js/vendor/fastclick.js'
-/foundation/bower_components/foundation/js/foundation.accordion.js'
-/foundation/bower_components/foundation/js/foundation.clearing.js'
-/foundation/bower_components/foundation/js/foundation.dropdown.js'
-/foundation/bower_components/foundation/js/foundation.equalizer.js'
-/foundation/bower_components/foundation/js/foundation.magellan.js'
-/foundation/bower_components/foundation/js/foundation.topbar.js'
-/foundation/js/jquery.backstretch.js'
-~~~
-
-{% include _improve_content.html %}
-
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
-
- [1]: http://kramdown.gettalong.org/converter/html.html#toc
- [2]: {{ site.url }}/blog/
- [3]: http://srobbin.com/jquery-plugins/backstretch/
- [4]: #
- [5]: #
- [6]: #
- [7]: #
- [8]: #
- [9]: #
- [10]: #
+<div>
+# ASCII-Font › http://patorjk.com/software/taag/#p=display&f=Slant&t=Phlow
+#
+#      _____ _ __          _____      __  __  _
+#     / ___/(_) /____     / ___/___  / /_/ /_(_)___  ____ ______
+#     \__ \/ / __/ _ \    \__ \/ _ \/ __/ __/ / __ \/ __ `/ ___/
+#    ___/ / / /_/  __/   ___/ /  __/ /_/ /_/ / / / / /_/ (__  )
+#   /____/_/\__/\___/   /____/\___/\__/\__/_/_/ /_/\__, /____/
+#                                                 /____/
+#
+# Title of your website
+title: 'oiin web site'
+
+# The slogan describes your website and is used on homepage in <title> and other important places
+slogan: 'A Flexible Theme for Jekyll'
+
+# The description is used on homepage and in the footer to quickly describe your website. Use a maximum of 150 characters for SEO-purposes.
+description: '»Feeling Responsive« is a responsive theme for Jekyll based on the fabulous foundation framework with beautiful typography and a bright color palette.'
+
+# The credits show up in the includes/_footer.html – It would be nice of you to leave a link to Phlow or Feeling Responsive as a thank you :)
+credits: '<p>Created with &hearts; by <a href="http://phlow.de/">Phlow</a> with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> based on <a href="http://phlow.github.io/feeling-responsive/">Feeling Responsive</a>.</p>'
+
+# Main author of the website
+# See > authors.yml
+author: phlow
+
+# This URL is the main address for absolute links. Don't include a slash at the end.
+#
+url: ''
+baseurl: 
+
+# This is for the editing function in _/includes/improve_content
+# Leave it empty if your site is not on GitHub/GitHub Pages
+improve_content: https://github.com/abzinid/111/edit/gh-pages
+
+# This URL points directly to the images directory making
+# things easier to link to images in posts and templates. It needs a slash at the end.
+#
+# Example: <img src="{{ site.urlimg }}{{ post.image.title }}" />
+# Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
+#
+urlimg: '/images/'
+
+
+# Logo size is 600x80 pixels
+logo: "logo.png"
+
+# Plugins
+plugins:
+    - jekyll-asciidoc
+    - jekyll-gist
+    - jekyll-paginate
+
+
+#       ____              _             __  _
+#      / __ \____ _____ _(_)___  ____ _/ /_(_)___  ____
+#     / /_/ / __ `/ __ `/ / __ \/ __ `/ __/ / __ \/ __ \
+#    / ____/ /_/ / /_/ / / / / / /_/ / /_/ / /_/ / / / /
+#   /_/    \__,_/\__, /_/_/ /_/\__,_/\__/_/\____/_/ /_/
+#               /____/
+#
+paginate: 5                      # Paginates all X entries
+paginate_path: "blog/page:num"   # Pagination path › Important for blog page in /blog/ to work
+
+
+# Theme works best with Kramdown (using the table of contents function)
+markdown           : kramdown
+permalink          : /:categories/:title/
+highlight          : rouge
+excerpt_separator  : "<!--more-->"
+include            : ['.htaccess']
+# Exclude these files from your production _site
+exclude:
+    - .sass-cache
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+    - INSTALL.md
+    - vendor
+
+
+# The language setting is used in /includes/header.html for html-settings
+language: 'en'
+
+
+# Used › default.html front-matter and compress.html
+# Options › http://jch.penibelst.de
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  profile: false
+  ignore:
+    envs: [development]
+   
+   
+
+
+#
+#       ____       ____            ____
+#      / __ \___  / __/___ ___  __/ / /_
+#     / / / / _ \/ /_/ __ `/ / / / / __/
+#    / /_/ /  __/ __/ /_/ / /_/ / / /_
+#   /_____/\___/_/  \__,_/\__,_/_/\__/
+#
+# Default Settings
+
+defaults:
+  -
+    scope:
+      path: '' 				# an empty string here means all files in the project
+      type: 'pages'
+    values:
+      show_meta: false 	# Hide metadata for all pages
+      # sidebar:    		# Possible values › left, right › by default there will be no sidebar
+      comments: false
+      author: phlow     # Default author for pages
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+      show_meta: true   # Show metadata for all posts
+      # sidebar:        # Possible values › left, right › by default there will be no sidebar
+      comments: false
+      author: phlow     # Default author for posts
+
+
+
+#       _   __            _             __  _
+#      / | / /___ __   __(_)___ _____ _/ /_(_)___  ____
+#     /  |/ / __ `/ | / / / __ `/ __ `/ __/ / __ \/ __ \
+#    / /|  / /_/ /| |/ / / /_/ / /_/ / /_/ / /_/ / / / /
+#   /_/ |_/\__,_/ |___/_/\__, /\__,_/\__/_/\____/_/ /_/
+#                       /____/
+#
+#  Open _data/navigation.yml to adjust the left and right topbar navigation
+#
+
+
+
+#     _____ __________
+#    / ___// ____/ __ \
+#    \__ \/ __/ / / / /
+#   ___/ / /___/ /_/ /
+#  /____/_____/\____/    Verify Website to Webmaster Tools
+
+google_author:             'https://plus.google.com/u/0/118311555303973066167'
+google_site_verification:  'Vk0IOJ2jwG_qEoG7fuEXYqv0m2rLa8P778Fi_GrsgEQ'
+bing_webmastertools_id:    '0FB4C028ABCF07C908C54386ABD2D97F'
+# yandex_site_verification:  ''
+# alexa_verify_id:           ''
+
+
+
+#       ______            _
+#      / ____/___ __   __(_)________  ____  _____
+#     / /_  / __ `/ | / / / ___/ __ \/ __ \/ ___/
+#    / __/ / /_/ /| |/ / / /__/ /_/ / / / (__  )
+#   /_/    \__,_/ |___/_/\___/\____/_/ /_/____/   Favicon-Crap: Favicons, Chrome, Android & Apple Touch Buttons
+#                                                 More information » https://mathiasbynens.be/notes/touch-icons
+
+favicon-32x32:                          'favicon-32x32.png'
+touch-icon-192x192:                     'touch-icon-192x192.png'
+apple-touch-icon-180x180-precomposed:   'apple-touch-icon-180x180-precomposed.png'
+apple-touch-icon-152x152-precomposed:   'apple-touch-icon-152x152-precomposed.png'
+apple-touch-icon-144x144-precomposed:   'apple-touch-icon-144x144-precomposed.png'
+apple-touch-icon-120x120-precomposed:   'apple-touch-icon-120x120-precomposed.png'
+apple-touch-icon-114x114-precomposed:   'apple-touch-icon-114x114-precomposed.png'
+apple-touch-icon-76x76-precomposed:     'apple-touch-icon-76x76-precomposed.png'
+apple-touch-icon-72x72-precomposed:     'apple-touch-icon-72x72-precomposed.png'
+apple-touch-icon-precomposed:           'apple-touch-icon-precomposed.png'
+msapplication_tileimage:                'msapplication_tileimage.png'               # Size 144x144
+msapplication_tilecolor:                '#fabb00'
+
+
+#       ______                __                __
+#      / ____/___ _________  / /_  ____  ____  / /__
+#     / /_  / __ `/ ___/ _ \/ __ \/ __ \/ __ \/ //_/
+#    / __/ / /_/ / /__/  __/ /_/ / /_/ / /_/ / ,<
+#   /_/    \__,_/\___/\___/_.___/\____/\____/_/|_|      Facebook-Optimization › http://j.mp/fb_optimize
+
+og_image:                           'http://images.phlow.de/phlow/phlow_de-logo-512x.png'
+og_locale:                          'en_EN'
+og_type:                            'website'
+
+
+#      _____            _       __   __  ___         ___
+#     / ___/____  _____(_)___ _/ /  /  |/  /__  ____/ (_)___ _
+#     \__ \/ __ \/ ___/ / __ `/ /  / /|_/ / _ \/ __  / / __ `/
+#    ___/ / /_/ / /__/ / /_/ / /  / /  / /  __/ /_/ / / /_/ /
+#   /____/\____/\___/_/\__,_/_/  /_/  /_/\___/\__,_/_/\__,_/
+#
+#  Open _data/socialmedia.yml to adjust the left and right topbar navigation
+#
+
+socialmedia:
+    twitter: phlow
+    facebook: phlow.media
+
+
+#        ____  _
+#       / __ \(_)________ ___  _______
+#      / / / / / ___/ __ `/ / / / ___/
+#     / /_/ / (__  ) /_/ / /_/ (__  )
+#    /_____/_/____/\__, /\__,_/____/
+#                    /_/
+#
+# used in _includes/comments
+
+disqus_shortname: feelingresponsive
+
+
+#      _____
+#     / ___/____ ___________
+#     \__ \/ __ `/ ___/ ___/
+#    ___/ / /_/ (__  |__  )     More › http://sass-lang.com/
+#   /____/\__,_/____/____/      More › http://jekyllrb.com/docs/assets/#sassscss
+#
+
+sass:
+    sass_dir : _sass
+    style    : :compressed
+
+
+#       ___                __      __  _
+#      /   |  ____  ____ _/ /_  __/ /_(_)_________
+#     / /| | / __ \/ __ `/ / / / / __/ / ___/ ___/
+#    / ___ |/ / / / /_/ / / /_/ / /_/ / /__(__  )
+#   /_/  |_/_/ /_/\__,_/_/\__, /\__/_/\___/____/      https://www.google.com/analytics/
+#                        /____/
+#
+# used in _includes/footer_scripts
+
+google_analytics_tracking_id: UA-60112281-1
+
+
+
+#   _                 _     _
+#  | |_ __ ___      _| | __| |_ ___
+#  | __/ _` \ \ /\ / / |/ /| __/ _ \
+#  | || (_| |\ V  V /|   < | || (_) |
+#   \__\__,_| \_/\_/ |_|\_(_)__\___/     More › https://www.tawk.to/knowledgebase/
+#
+#  tawk.to is a free live chat app that lets you monitor and chat
+#  with visitors on your website or from a free customizable page
+#
+#  To load the script add tawkto: true in front matter of each page
+#
+# used in _includes/footer_scripts
+
+# tawkto_embed_uri:
+
+
+#     ___              _     __           __
+#    /   |  __________(_)___/ /___  _____/ /_____  _____
+#   / /| | / ___/ ___/ / __  / __ \/ ___/ __/ __ \/ ___/
+#  / ___ |(__  ) /__/ / /_/ / /_/ / /__/ /_/ /_/ / /
+# /_/  |_/____/\___/_/\__,_/\____/\___/\__/\____/_/
+#
+#  Asciidoctor is a fast text processor and publishing toolchain for converting
+#  AsciiDoc content to HTML5, DocBook 5 (or 4.5) and other formats.
+#
+#  https://github.com/asciidoctor/jekyll-asciidoc
+#  https://github.com/asciidoctor
+#
+#
+
+asciidoctor-enabled: false
+asciidoctor:
+  description: testtewtetrue
+  attributes:
+    source-highlighter: coderay
+    coderay-css: style
+    icons: font
+   </div>
